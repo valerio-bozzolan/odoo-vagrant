@@ -6,46 +6,38 @@ Vagrant Setup for Odoo
 Dependencies
 ------------
 
-* VirtualBox
-* Vagrant 1.6.1
+Tested with Vagrant 1.9.1 with `libvrt`.
 
 Setup
 -----
 
-1. Download and Install Ansible http://docs.ansible.com/intro_installation.html
+1. Download and install Vagrant
 
+```
+sudo apt install vagrant vagrant-libvirt
+```
 
-1. Download and install vagrant (the OR based wget allows COVETEL people to get it from a local mirror)
+1. Setup the Vagrant box.
 
-   ```
-$ wget http://mirror/files/deb/vagrant_1.6.2_x86_64.deb || wget http://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.3_x86_64.deb
-$ sudo dpkg -i vagrant_1.6.2_x86_64.deb
-
-   ```
-
-1. Setup vagrant box.
-
-   ```
-$ vagrant box add debian7 http://iweb.dl.sourceforge.net/project/vagrantdebianboxes/debianwheezy.box
-
-   ```
+```
+vagrant box add debian/stretch64
+```
    
-1. Clone this repository 
+2. Clone this repository 
 
-   ```
-$ git clone https://github.com/Covetel/odoo-vagrant.git
+```
+git clone https://github.com/valerio-bozzolan/odoo-vagrant
+```
 
-   ```
-1. Create `addons` directory
+3. Create the `addons` directory before entering in the project directory
 
-   ```
-$ cd odoo-vagrant
-$ mkdir ../addons
-   ```
-1. Edit file `script.sh` and set `$MIRROR_IP` to your IP address mirror.
-1. Vagrant up
+```
+mkdir addons
+cd odoo-vagrant
+```
 
-   ```
-$ cd odoo-vagrant
-$ vagrant up
-   ```
+4. Vagrant up
+
+```
+vagrant up
+```
